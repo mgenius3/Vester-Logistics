@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "740964389489",
+    "project_id": "vester-cb750",
+    "storage_bucket": "vester-cb750.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740964389489:android:bf5870875c3235e058c1d0",
+        "android_client_info": {
+          "package_name": "com.example.vester"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740964389489-1f9bdmpcrn0t73o7gpbuod10dgr3i3js.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKd9AlvXt7taRLmMddg6DXULZWWNv-pgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740964389489-1f9bdmpcrn0t73o7gpbuod10dgr3i3js.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
