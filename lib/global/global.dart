@@ -12,6 +12,7 @@ String driverCarDetails = "";
 String driverName = "";
 String driverPhone = "";
 String driverRatings = "";
+String driverProfileImg = "";
 
 double countRatingStars = 0.0;
 String titleStarsRating = "";

@@ -7,6 +7,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../Assistants/assistant_method.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -221,7 +222,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             centerTitle: true,
             elevation: 0.0,
           ),
-          body: Center(
+          body: SingleChildScrollView(
+              child: Center(
             child: Padding(
               padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
               child: Column(
@@ -232,97 +234,159 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          uploadImageToFirestore(
-                              FirebaseAuth.instance.currentUser!.uid);
+                          // uploadImageToFirestore(
+                          //     FirebaseAuth.instance.currentUser!.uid);
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CircleAvatar(
-                              radius: 50.5,
-                              backgroundImage: NetworkImage(userModelCurrentInfo
-                                      ?.image_url
-                                      ?.toString() ??
-                                  'https://img.icons8.com/color/48/circled-user-male-skin-type-4--v1.png'), // Replace with user's profile image
+                              radius: 20,
+                              child: Text(
+                                  "${userModelCurrentInfo!.name.toString()[0]}",
+                                  style: TextStyle(fontSize: 30)),
                             ),
-                            Icon(Icons.camera_alt),
                           ],
                         ),
                       )),
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "${userModelCurrentInfo?.name}",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            showUserNameDialogAlert(
-                                context, userModelCurrentInfo?.name ?? "");
-                          },
-                          icon: Icon(
-                            Icons.edit,
-                          ))
-                    ],
-                  ),
-                  Divider(
-                    thickness: 1,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "${userModelCurrentInfo?.phone}",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            showPhoneDialogAlert(
-                                context, userModelCurrentInfo?.phone ?? "");
-                          },
-                          icon: Icon(
-                            Icons.edit,
-                          ))
-                    ],
-                  ),
-                  Divider(
-                    thickness: 1,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "${userModelCurrentInfo?.address}",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            showAddressDialogAlert(
-                                context, userModelCurrentInfo?.address ?? "");
-                          },
-                          icon: Icon(
-                            Icons.edit,
-                          ))
-                    ],
-                  ),
-                  Divider(
-                    thickness: 1,
-                  ),
+
+                  SizedBox(height: 30),
+
                   Text(
-                    "${userModelCurrentInfo?.email}",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    "SETTINGS",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    iconColor: Colors.black,
+                    leading: Icon(Icons.person, color: Colors.black),
+                    title: Text(
+                      '${userModelCurrentInfo?.name}',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                    onTap: () {
+                      showUserNameDialogAlert(
+                          context, userModelCurrentInfo?.name ?? "");
+                    },
+                  ),
+
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    iconColor: Colors.black,
+                    leading: Icon(Icons.phone_android, color: Colors.black),
+                    title: Text(
+                      '${userModelCurrentInfo?.phone}',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                    onTap: () {
+                      showPhoneDialogAlert(
+                          context, userModelCurrentInfo?.phone ?? "");
+                    },
+                  ),
+
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    iconColor: Colors.black,
+                    leading: Icon(FontAwesomeIcons.locationPinLock,
+                        color: Colors.black),
+                    title: Text(
+                      "${userModelCurrentInfo?.address}",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                    onTap: () {
+                      showAddressDialogAlert(
+                          context, userModelCurrentInfo?.address ?? "");
+                    },
+                  ),
+                  // Divider(),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    iconColor: Colors.black,
+                    leading: Icon(Icons.mail_lock, color: Colors.black),
+                    title: Text(
+                      '${userModelCurrentInfo?.email}',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    trailing: Icon(FontAwesomeIcons.lock, size: 15),
+                    onTap: () {
+                      // Navigator.pushNamed(context, AppRoutes.trade_giftcard);
+                    },
+                  ),
+                  // Divider(),
+
+                  SizedBox(height: 30),
+                  Text(
+                    "SOCIAL HANDLES",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(height: 10),
+
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    iconColor: Colors.black,
+                    leading:
+                        Icon(FontAwesomeIcons.instagram, color: Colors.black),
+                    title: Text(
+                      'Follow on Instagram',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                    onTap: () {
+                      // Navigator.pushNamed(context, AppRoutes.trade_giftcard);
+                    },
+                  ),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    iconColor: Colors.black,
+                    leading:
+                        Icon(FontAwesomeIcons.twitter, color: Colors.black),
+                    title: Text(
+                      'Follow on Twitter',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                    onTap: () {
+                      // Navigator.pushNamed(context, AppRoutes.trade_giftcard);
+                    },
+                  ),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    iconColor: Colors.black,
+                    leading:
+                        Icon(FontAwesomeIcons.facebook, color: Colors.black),
+                    title: Text(
+                      'Follow on Facebook',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                    onTap: () {
+                      // Navigator.pushNamed(context, AppRoutes.trade_giftcard);
+                    },
+                  ),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    iconColor: Colors.black,
+                    leading:
+                        Icon(FontAwesomeIcons.whatsapp, color: Colors.black),
+                    title: Text(
+                      'Write us on Whatsapp',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                    onTap: () {
+                      // Navigator.pushNamed(context, AppRoutes.trade_giftcard);
+                    },
                   ),
                 ],
               ),
             ),
-          )),
+          ))),
     );
   }
 }

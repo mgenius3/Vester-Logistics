@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import "../../model/predicted_places.dart";
 import "package:vester/global/map_key.dart";
 import "../../widget/place_prediction.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchPlacesScreen extends StatefulWidget {
   const SearchPlacesScreen({Key? key}) : super(key: key);
@@ -85,7 +86,7 @@ class _SearchPlacesScreenState extends State<SearchPlacesScreen> {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.adjust_sharp,
+                            Icon(FontAwesomeIcons.locationDot,
                                 color: darkTheme ? Colors.black : Colors.white),
                             Expanded(
                                 child: Padding(
@@ -100,9 +101,6 @@ class _SearchPlacesScreenState extends State<SearchPlacesScreen> {
                                         },
                                         decoration: InputDecoration(
                                             hintText: "Search location here...",
-                                            // fillColor: darkTheme
-                                            //     ? Color(0xFFFF5A5A)
-                                            //     : Colors.white54,
                                             filled: true,
                                             border: InputBorder.none,
                                             contentPadding: EdgeInsets.only(

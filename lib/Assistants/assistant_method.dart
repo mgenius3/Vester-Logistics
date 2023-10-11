@@ -48,6 +48,8 @@ class AssistantMethods {
         DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
             snapshot.docs[0] as DocumentSnapshot<Map<String, dynamic>>;
 
+        print(documentSnapshot);
+
         userModelCurrentInfo = UserModel.fromSnapshot(documentSnapshot);
 
         // Perform further operations with the data

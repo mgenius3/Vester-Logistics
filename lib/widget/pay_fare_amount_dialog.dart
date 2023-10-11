@@ -22,7 +22,7 @@ class _PayFareAmountDialogState extends State<PayFareAmountDialog> {
         margin: EdgeInsets.all(10),
         width: double.infinity,
         decoration: BoxDecoration(
-            color: Colors.blue, borderRadius: BorderRadius.circular(10)),
+            color: Color(0xFFFF1717), borderRadius: BorderRadius.circular(10)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -81,7 +81,7 @@ class _PayFareAmountDialogState extends State<PayFareAmountDialog> {
                       "Pay Cash: ",
                       style: TextStyle(
                           fontSize: 15,
-                          color: Colors.blue,
+                          color: Color(0xFFFF1717),
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
@@ -89,7 +89,7 @@ class _PayFareAmountDialogState extends State<PayFareAmountDialog> {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
-                        color: Colors.blue,
+                        color: Color(0xFFFF1717),
                       ),
                     )
                   ],

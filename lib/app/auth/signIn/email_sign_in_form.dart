@@ -42,7 +42,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       AssistantMethods.readCurrentOnlineUserInfo();
 
       Navigator.of(context).pushReplacement(MaterialPageRoute<void>(
-        // builder: (context) => BookingPage(),
         builder: (context) => MapScreen(),
         fullscreenDialog: true,
       ));
@@ -60,14 +59,12 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
 
   List<Widget> _buildChildren() {
     return [
-      // Container(child: Image.asset("images/logo.png")),
       SizedBox(height: 26),
       Text(
         "Sign In",
         style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
       ),
       SizedBox(height: 36),
-
       TextFormField(
         decoration: InputDecoration(
           labelText: 'Email address',
@@ -111,7 +108,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                   ? Text("Sign In", style: TextStyle(fontSize: 24))
                   : CircularProgressIndicator(
                       color: Colors.white,
-                      backgroundColor: Color(0xFF0D47A1),
+                      backgroundColor: Color(0xFFFF7B7B),
                     )
             ],
           ),
@@ -125,19 +122,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
           },
           child: Text('Forgot Password ?')),
       SizedBox(height: 16.0),
-      // ElevatedButton.icon(
-      //   onPressed: () {
-      //     widget.auth.signInWithGoogle();
-      //     // Perform registration with Google logic here
-      //   },
-      //   icon: Image.asset('images/google.png',
-      //       height: 24.0), // Replace with your Google icon
-      //   label: Text('Sign in with Google'),
-      //   style: ElevatedButton.styleFrom(
-      //     primary: Colors.red, // Customize the button background color
-      //     onPrimary: Colors.white, // Customize the button text color
-      //   ),
-      // ),
       TextButton(
           child: Text('Need an account? Register'),
           onPressed: () => Navigator.of(context).push(
